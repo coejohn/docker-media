@@ -28,6 +28,7 @@ services:
       - /mnt/docker_storage/config/sabnzbd:/config
       - /mnt/docker_storage/downloads:/downloads
       - /mnt/docker_storage/downloads:/incomplete-downloads
+      - /mnt/docker_storage/complete:/data  
     ports:
       - 8080:8080
 
@@ -101,4 +102,17 @@ services:
     ports:
       - 5076:5076
     restart: unless-stopped
-
+      
+  ombi:
+    image: lscr.io/linuxserver/ombi:latest
+    container_name: ombi
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGUID}
+      - TZ=${TZ}
+      - BASE_URL=/ombi #optional
+    volumes:
+      - /mnt/docker_storage/config:/config
+    ports:
+      - 3579:3579
+    restart: unless-stopped
