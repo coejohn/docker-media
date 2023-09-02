@@ -1,0 +1,144 @@
+---
+title: "Coe's Server"
+subtitle: "<3"
+logo: "assets/tools/coe2.png"
+
+header: false
+footer: false #'<p>Theme made with <span class="has-text-danger">❤️</span> by <a href="https://github.com/WalkxCode">Walkx</a></p>' # Set false if you want to hide it.
+
+stylesheet:
+  - "assets/custom.css"
+
+columns: "3" # You can change this to any number that is a factor of 12: (1, 2, 3, 4, 6, 12)
+theme: default
+colors:
+  light:
+    highlight-primary: "#fff5f2"
+    highlight-secondary: "#fff5f2"
+    highlight-hover: "#bebebe"
+    background: "#12152B"
+    card-background: "rgba(255, 245, 242, 0.8)"
+    text: "#ffffff"
+    text-header: "#fafafa"
+    text-title: "#000000"
+    text-subtitle: "#111111"
+    card-shadow: rgba(0, 0, 0, 0.5)
+    link: "#3273dc"
+    link-hover: "#2e4053"
+    background-image: "../assets/wallpaper-light.jpeg" # Change wallpaper.jpeg to the name of your own custom wallpaper!
+  dark:
+    highlight-primary: "#181C3A"
+    highlight-secondary: "#181C3A"
+    highlight-hover: "#1F2347"
+    background: "#12152B"
+    card-background: "rgba(24, 28, 58, 0.8)"
+    text: "#eaeaea"
+    text-header: "#7C71DD"
+    text-title: "#fafafa"
+    text-subtitle: "#8B8D9C"
+    card-shadow: rgba(0, 0, 0, 0.5)
+    link: "#c1c1c1"
+    link-hover: "#fafafa"
+    background-image: "../assets/wallpaper.jpeg" #changed
+
+services:
+  - name: "//Media Server"
+    icon: "fas fa-github"
+    items: 
+      - name: "Plex"
+        logo: "assets/tools/plex1.png"
+        subtitle: "Plex"
+        tag: "plex"
+        tagstyle: "is-primary"
+        url: "http://plex.coejohnson.com"
+        target: "_blank"
+
+      - name: "Ombi"
+        logo: "assets/tools/ombi1.png"
+        subtitle: "Request movies and shows"
+        tag: "ombi"
+        tagstyle: "is-primary"
+        url: "http://ombi.coejohnson.com"
+        target: "_blank"
+
+  - name: "//Network"
+    icon: "fas fa-reddit"
+    items:
+      - name: "Nginx proxy manager"
+        logo: "assets/tools/nginx1.png"
+        subtitle: ""
+        tag: "nginx"
+        tagstyle: "is-primary"
+        url: "http://nginx.coejohnson.com"
+        target: "_blank"
+          
+      - name: "pihole"
+        logo: "assets/tools/pihole.png"
+        subtitle: "dhcp proxy"
+        tag: "pihole"
+        tagstyle: "is-primary"
+        url: "http://pihole.coejohnson.com"
+        target: "_blank"
+
+      - name: "Grafana"
+        logo: "assets/tools/grafana.png"
+        subtitle: "Monitoring"
+        tag: "grafana"
+        tagstyle: "is-primary"
+        url: "http://grafana.coejohnson.com"
+        target: "_blank"
+
+
+  - name: "//Media Server Backend"
+    icon: "fas fa-github"
+    items:
+      - name: "Sonarr"
+        logo: "assets/tools/sonarr1.png"
+        subtitle: "Show Requester"
+        tag: "sonarr"
+        tagstyle: "is-primary"
+        url: "http://sonarr.coejohnson.com"
+        target: "_blank"
+
+      - name: "Radarr"
+        logo: "assets/tools/radarr1.png"
+        subtitle: "Movie Requester"
+        tag: "radarr"
+        tagstyle: "is-primary"
+        url: "http://radarr.coejohnson.com"
+        target: "_blank"
+
+      - name: "SABnzbd"
+        logo: "assets/tools/sabnzbd1.png"
+        subtitle: "Downloads"
+        tag: "Sabnzbd"
+        tagstyle: "is-primary"
+        url: "http://sabnzbd.coejohnson.com"
+        target: "_blank"
+
+      - name: "Bazarr"
+        logo: "assets/tools/bazarr2.png"
+        subtitle: "Subtitle manager"
+        tag: "bazarr"
+        tagstyle: "is-primary"
+        url: "http://bazarr.coejohnson.com"
+        target: "_blank"
+
+      - name: "Hydra"
+        logo: "assets/tools/nzbhydra2.png"
+        subtitle: "Index checker"
+        tag: "hydra"
+        tagstyle: "is-primary"
+        url: "http://hydra.coejohnson.com"
+        target: "_blank"
+
+  - name: "//Blog"
+    icon: "fas fa-github"
+    items:
+      - name: "coejohnson.com"
+        logo: "assets/tools/coe2.png"
+        subtitle: "wordpress"
+        tag: "coejohnson.com"
+        tagstyle: "is-primary" # This will display the is-primary color! Try changing it to; is-link, is-info, is-success, is-warning or is-danger!
+        url: "https://coejohnson.com"
+        target: "_blank"
