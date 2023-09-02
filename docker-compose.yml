@@ -1,25 +1,10 @@
 version: "3.4"
 services:
-  vpn:
-    container_name: vpn
-    image: dperson/openvpn-client:latest
-    cap_add:
-      - net_admin
-    restart: unless-stopped
-    volumes:
-      - /dev/net:/dev/net:z
-      - /mnt/docker_storage/config/vpn:/vpn
-    security_opt:
-      - label:disable
-    ports:
-      - 8112:8112
-    command: '-f "" -r 192.168.1.0/24'
-
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd
-    network_mode: host
-    restart: unless-stopped      
+    #network_mode: host
+    restart: unless-stopped
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -28,7 +13,7 @@ services:
       - /mnt/docker_storage/config/sabnzbd:/config
       - /mnt/docker_storage/downloads:/downloads
       - /mnt/docker_storage/downloads:/incomplete-downloads
-      - /mnt/docker_storage/complete:/data  
+      - /mnt/docker_storage/complete:/data
     ports:
       - 8080:8080
 
@@ -88,7 +73,7 @@ services:
       - /mnt/docker_storage/config/bazarr:/config
       - /mnt/docker_storage/complete/movies:/movies
       - /mnt/docker_storage/complete/tv:/tv
-  
+    
   nzbhydra2:
     image: lscr.io/linuxserver/nzbhydra2:latest
     container_name: nzbhydra2
@@ -106,13 +91,33 @@ services:
   ombi:
     image: lscr.io/linuxserver/ombi:latest
     container_name: ombi
+    network_mode: host
     environment:
       - PUID=${PUID}
       - PGID=${PGUID}
       - TZ=${TZ}
-      - BASE_URL=/ombi #optional
     volumes:
       - /mnt/docker_storage/config:/config
     ports:
-      - 3579:3579
+      - 6565:3579
     restart: unless-stopped
+
+  ngnix:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: ngnix-proxy-manager
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - /docker/data:/data
+      - /docker/letsencrypt:/etc/letsencrypt
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - /docker/letsencrypt:/etc/letsencrypt
+      - /docker/data:/data 
+
